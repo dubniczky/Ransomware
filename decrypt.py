@@ -10,20 +10,19 @@ def decrypt_files(files, key):
         f_in = file['in']
         f_out = file['out']
         try:
-            with open(f_out, "rb") as f:
+            with open(f_out, 'rb', encoding='utf8') as f:
                 data = f.read()
             data = fernet.decrypt(data)
-            with open(f_in, "wb") as f:
+            with open(f_in, 'wb', encoding='utf8') as f:
                 f.write(data)
             os.remove(f_out)
             print(f'Decrypted: {f_out} -> {f_in}')
         except Exception:
             print(f'Error decrypting: {f_out} -> {f_in}')
-            pass
 
 
 def load_encryption_logs(file):
-    with open(file, 'r') as f:
+    with open(file, 'r', encoding='utf8') as f:
         return json.load(f)
 
 
