@@ -19,3 +19,8 @@ encrypt:
 .PHONY: generate
 generate:
 	$(py) generate.py
+
+# Unlock encryption key
+.PHONY: unlock
+unlock:
+	@$(py) unlock.py keys/private.key $(shell egrep --color=never '[0-9a-f]{512}' secret.key)
