@@ -100,3 +100,7 @@ python3 decrypt.py map.log DECYPTED_KEY
 ```
 
 At this point you have successfully decrypted the files.
+
+## Resources
+
+Cryptography library documentation: [docs](https://cryptography.io/en/latest/hazmat/primitives/asymmetric/rsa/)
