@@ -24,3 +24,8 @@ generate:
 .PHONY: unlock
 unlock:
 	@$(py) unlock.py keys/private.key $(shell cat secret.key)
+
+# Decrypt file
+.PHONY: decrypt
+decrypt:
+	@$(py) decrypt.py map.log $(shell make unlock)

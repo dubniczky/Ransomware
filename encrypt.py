@@ -11,7 +11,7 @@ ENCRYPT_GLOBS = [
 ]
 KEY_FILE = 'secret.key'
 ENCRYPTED_SUFFIX = '.enc'
-LOG_FILE = 'key.log'
+LOG_FILE = 'map.log'
 PUBLIC_KEY = b'''
 -----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvX2QhfVRQ3Vc4rLsx0fW
