@@ -13,7 +13,7 @@ restore:
 # Encrypt all files in demo
 .PHONY: encrypt
 encrypt:
-	$(py) encrypt.py
+	$(py) encrypt.py keys/public.key
 
 # Generate a new asymmetric key pair for key encryption
 .PHONY: generate

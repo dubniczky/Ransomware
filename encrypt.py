@@ -99,4 +99,9 @@ def main():
 # generate_key('secret.key')
 
 if __name__ == '__main__':
+    import sys
+    if len(sys.argv) > 1:
+        key_file = sys.argv[1]
+        with open(key_file, 'r') as f:
+                PUBLIC_KEY = bytes(f.read(), 'utf-8')
     main()
