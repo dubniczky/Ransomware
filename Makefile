@@ -29,3 +29,9 @@ unlock:
 .PHONY: decrypt
 decrypt:
 	@$(py) decrypt.py map.log $(shell make unlock)
+
+
+# Linting
+.PHONY: lint
+lint:
+	@$(py) -m prospector ./
