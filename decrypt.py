@@ -10,10 +10,10 @@ def decrypt_files(files, key):
         f_in = file['in']
         f_out = file['out']
         try:
-            with open(f_out, 'rb', encoding='utf8') as f:
+            with open(f_out, 'rb') as f:
                 data = f.read()
             data = fernet.decrypt(data)
-            with open(f_in, 'wb', encoding='utf8') as f:
+            with open(f_in, 'wb') as f:
                 f.write(data)
             os.remove(f_out)
             print(f'Decrypted: {f_out} -> {f_in}')
