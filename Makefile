@@ -35,3 +35,8 @@ decrypt:
 .PHONY: lint
 lint:
 	@$(py) -m prospector ./
+
+# Installing packages
+.PHONY: install
+install:
+	@pip install -r requirements.txt
